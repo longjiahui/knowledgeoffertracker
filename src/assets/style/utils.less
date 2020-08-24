@@ -1,0 +1,101 @@
+@import url(./widget/default);
+@import url(./transition);
+// @import url(./image);
+
+
+@autoPadding: 16px;
+.auto-padding{
+    padding: 0 @autoPadding;
+}
+.auto-p-l{
+    padding-left: @autoPadding;
+}
+.auto-p-r{
+    padding-right: @autoPadding;
+}
+.auto-p-h{
+    .auto-p-l;
+    .auto-p-r;
+}
+
+// utils
+.img-bg{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.text-ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.clickable{
+    cursor: pointer;
+}
+.hover-opacity(@opacity, @baseOpacity: 1, @transition: opacity .3s){
+    opacity: @baseOpacity;
+    transition: @transition;
+    .clickable;
+    &:hover{
+        opacity: @opacity;
+    }
+}
+.hover-opacity{
+    .hover-opacity(.75);
+}
+.float{
+    box-shadow: rgba(0, 0, 0, .1) 0 3px 24px !important;
+}
+
+// 布局
+.container-column{
+    display: flex;
+    flex-direction: column;
+}
+.container-row{
+    display: flex;
+}
+.container-row-center{
+    .container-row;
+    .row-center;    
+}
+.row-center-vertical{
+    align-items: center;
+}
+.row-center-horizontal{
+    justify-content: center;
+}
+.row-between{
+    justify-content: space-between;
+}
+.row-center{
+    .row-center-horizontal;
+    .row-center-vertical;
+}
+.container-column-center{
+    .container-column;
+    .col-center;
+}
+.col-center-vertical{
+    justify-content: center;
+}
+.col-center-horizontal{
+    align-items: center;
+}
+.col-center{
+    .col-center-vertical;
+    .col-center-horizontal;
+}
+.item-1{
+    flex: 1;
+}
+.main-item{
+    flex-grow: 1;
+}
+.no-shrink{
+    flex-shrink: 0;
+}
+.default-container-row{
+    .container-row;
+    .row-center-vertical;
+}
